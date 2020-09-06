@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data class="SignUpBinding">
+
+        <variable
+            name="vm"
+            type="com.yeongil.gatherer.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/back_arrow"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:contentDescription="go back"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_back_arrow"
+            android:onClick="@{() -> vm.goSignIn()}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/back_arrow_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="back_arrow" />
+
+        <TextView
+            android:id="@+id/sign_up_guide1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:layout_marginLeft="30sp"
+            android:text="모임을 시작하세요!"
+            android:textColor="#282828"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toTopOf="@id/sign_up_guide2"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/sign_up_guide2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30sp"
+            android:layout_marginLeft="30sp"
+            android:text="이메일과 비밀번호를 입력해주세요:)"
+            android:textColor="#737373"
+            app:layout_constraintBottom_toTopOf="@id/email_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_arrow_bottom" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/sign_up_guide_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="sign_up_guide1" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/sign_up_guide_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="sign_up_guide2" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="email"
+            android:hint="email"
+            android:text="@={vm.email}"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@id/password"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/sign_up_guide_bottom"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.75" />
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:autofillHints="password"
+            android:hint="password"
+            android:text="@={vm.password}"
+            android:inputType="textPassword"
+            app:layout_constraintBottom_toTopOf="@id/create_btn"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/email"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.75" />
+
+        <Button
+            android:id="@+id/create_btn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="sign up"
+            android:onClick="@{() -> vm.onClickSignUp()}"
+            app:layout_constraintBottom_toTopOf="@id/sign_in_top"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/password"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.75" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/email_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="email, password, create_btn" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/create_btn_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="email, password, create_btn" />
+
+        <TextView
+            android:id="@+id/sign_in_question"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="40dp"
+            android:text="Already have an account?"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/sign_in" />
+
+        <TextView
+            android:id="@+id/sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="Sign in"
+            android:onClick="@{()->vm.goSignIn()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toRightOf="@id/sign_in_question"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/sign_in_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="sign_in_question, sign_in" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
