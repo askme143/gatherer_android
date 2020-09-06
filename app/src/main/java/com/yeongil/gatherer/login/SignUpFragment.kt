@@ -29,18 +29,6 @@ class SignUpFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_sign_up, container, false)
         binding.vm = viewModel
 
-        viewModel.message.observe(this, Observer { event ->
-            event.getContentIfNotHandled()?.let {
-                Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
-            }
-        })
-
-        viewModel.signIn.observe(this, Observer {
-            it.getContentIfNotHandled()?.let{
-                (activity as LoginActivity).replaceFragment(R.layout.fragment_sign_in)
-            }
-        })
-
         return binding.root
     }
 }
