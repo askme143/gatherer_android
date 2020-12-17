@@ -29,21 +29,19 @@ class LoginViewModel : ViewModel() {
         val password = password.value
 
         if (email == null || email.isEmpty()) {
-            _message.value = Event("이메일을 입력하세요")
+            showMessage("이메일을 입력하세요")
             return
         } else if (password == null || password.isEmpty()) {
-            _message.value = Event("비밀번호를 입력하세요")
+            showMessage("비밀번호를 입력하세요")
             return
         }
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Login succeed. Go to MainActivity
                     goMain()
                 } else {
-                    // Error occurred
-                    _message.value = Event(task.exception?.message!!)
+                    showMessage(task.exception?.message!!)
                 }
             }
     }
@@ -53,21 +51,19 @@ class LoginViewModel : ViewModel() {
         val password = password.value
 
         if (email == null || email.isEmpty()) {
-            _message.value = Event("이메일을 입력하세요")
+            showMessage("이메일을 입력하세요")
             return
         } else if (password == null || password.isEmpty()) {
-            _message.value = Event("비밀번호를 입력하세요")
+            showMessage("비밀번호를 입력하세요")
             return
         }
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Login succeed. Go to MainActivity
                     goMain()
                 } else {
-                    // Error occurred
-                    _message.value = Event(task.exception?.message!!)
+                    showMessage(task.exception?.message!!)
                 }
             }
     }
@@ -88,6 +84,10 @@ class LoginViewModel : ViewModel() {
         email.value = ""
         password.value = ""
         _goMain.value = Event(true)
+    }
+
+    private fun showMessage(message: String){
+        _message.value = Event(message)
     }
 }
 

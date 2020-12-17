@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "463546005824",
+    "firebase_url": "https://gatherer-c0c50.firebaseio.com",
+    "project_id": "gatherer-c0c50",
+    "storage_bucket": "gatherer-c0c50.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:463546005824:android:967680efc52a9298d9a2a5",
+        "android_client_info": {
+          "package_name": "com.yeongil.gatherer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "463546005824-10ntirfg3al9sp3k8e6ic2ls64merjne.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgQG3vWAfrEUxgwikbMvFBHeSy6tX6O1I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "463546005824-10ntirfg3al9sp3k8e6ic2ls64merjne.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

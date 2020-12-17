@@ -45,7 +45,10 @@
             android:textColor="#282828"
             android:textSize="30sp"
             app:layout_constraintBottom_toTopOf="@id/sign_up_guide2"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/back_arrow_bottom"
+            app:layout_constraintVertical_chainStyle="packed"
+            />
 
         <TextView
             android:id="@+id/sign_up_guide2"
@@ -57,7 +60,9 @@
             android:textColor="#737373"
             app:layout_constraintBottom_toTopOf="@id/email_top"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/back_arrow_bottom" />
+            app:layout_constraintTop_toBottomOf="@id/sign_up_guide1"
+            app:layout_constraintVertical_chainStyle="packed"
+             />
 
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/sign_up_guide_top"

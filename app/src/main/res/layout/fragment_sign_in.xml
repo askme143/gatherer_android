@@ -178,7 +178,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:text="Sign up"
-                android:onClick="@{() -> vm.goSignUp()}"
+                android:onClick="@{(view) -> vm.goSignUp(view)}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/sign_up_question"
                 app:layout_constraintRight_toRightOf="parent" />
